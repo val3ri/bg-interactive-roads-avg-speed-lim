@@ -136,6 +136,25 @@ const ROAD_TRACKS = {
             "active_since": "2025-11-7"
         },
         {
+            id: "am-hemus-gornobogrov-churek",
+            name: "АМ Хемус (Горно Богров - Чурек)",
+            startPoint: {
+                name: "Горно Богров",
+                "description": "Камерите са на мост, към който няма отбивка",
+                "image": "gornobogrov.jpg",
+                coordinates: [42.7250652,23.5279422]
+            },
+            endPoint: {
+                name: "Чурек",
+                "description": "Камерите са на метална конструкция над пътя",
+                "image": "churek.jpg",
+                coordinates: [42.7786819,23.7361551]
+            },
+            speedLimit: 140,
+            distance: 20.2,
+            "active_since": "2026-1-10",
+        },
+        {
             id: "am-hemus-belokopitovo-kaspichan",
             name: "АМ Хемус (Белокопитово - Каспичан)",
             startPoint: {
@@ -172,6 +191,25 @@ const ROAD_TRACKS = {
             speedLimit: 140,
             distance: 18.423,
             "active_since": "2025-9-6"
+        },
+        {
+            id: "am-struma-sofia-malobuchino",
+            name: "АМ Струма (Марикостиново - Дамяница)",
+            startPoint: {
+                "name": "Марикостиново",
+                "description": "Камерите са на метална конструкция над пътя",
+                "image": "marikostinovo.jpg",
+                "coordinates": [41.4190444, 23.3338727]
+            },
+            endPoint: {
+                "name": "Дамяница",
+                "description": "Камерите са на метална конструкция над пътя",
+                "image": "damianica.jpg",
+                "coordinates": [41.5145269,23.2716104]
+            },
+            speedLimit: 140,
+            distance: 12.2,
+            "active_since": "2026-1-10"
         },
         {
             id: "am-struma-sofia-malobuchino",
