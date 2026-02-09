@@ -5,12 +5,37 @@
     <!-- Main page -->
     <url>
         <loc>https://bg-speed-zones.com/</loc>
-        <lastmod>2025-11-20</lastmod>
+        <lastmod>2026-02-09</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="bg" href="https://bg-speed-zones.com/" />
     </url>
 
-    <!-- Add more pages here if you create additional pages -->
+    <!-- Fines page -->
+    <url>
+        <loc>https://bg-speed-zones.com/globi-sredna-skorost.html</loc>
+        <lastmod>2026-02-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="bg" href="https://bg-speed-zones.com/globi-sredna-skorost.html" />
+    </url>
+
+    <!-- Statistics page -->
+    <url>
+        <loc>https://bg-speed-zones.com/statistika.html</loc>
+        <lastmod>2026-02-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="bg" href="https://bg-speed-zones.com/statistika.html" />
+    </url>
+
+    <!-- About page -->
+    <url>
+        <loc>https://bg-speed-zones.com/za-kartata.html</loc>
+        <lastmod>2026-02-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="bg" href="https://bg-speed-zones.com/za-kartata.html" />
+    </url>
 
 </urlset>
