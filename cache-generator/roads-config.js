@@ -137,12 +137,12 @@ const ROAD_TRACKS = {
         },
         {
             id: "am-hemus-gornobogrov-churek",
-            name: "АМ Хемус (Горно Богров - Чурек)",
+            name: "АМ Хемус (Горни Богров - Чурек)",
             startPoint: {
-                name: "Горно Богров",
+                name: "Горни Богров",
                 "description": "Камерите са на мост, към който няма отбивка",
-                "image": "gornobogrov.jpg",
-                coordinates: [42.7250652,23.5279422]
+                "image": "gornibogrov.jpg",
+                coordinates: [42.7250609,23.5277128]
             },
             endPoint: {
                 name: "Чурек",
