@@ -136,6 +136,25 @@ const ROAD_TRACKS = {
             "active_since": "2025-11-7"
         },
         {
+            id: "am-trakia-krastina-vetren",
+            name: "АМ Тракия (Кръстина - Ветрен)",
+            startPoint: {
+                name: "Кръстина",
+                "description": "Камерите са на мост, към който няма отбивка",
+                "image": "krastina.jpg",
+                coordinates: [42.5891704, 27.226427]
+            },
+            endPoint: {
+                name: "Ветрен",
+                "description": "Камерите са на метална конструкция над пътя",
+                "image": "vetren.jpg",
+                coordinates: [42.5932305, 27.3858219]
+            },
+            speedLimit: 140,
+            distance: 13.56,
+            "active_since": "2026-03-30"
+        },
+        {
             id: "am-hemus-gornobogrov-churek",
             name: "АМ Хемус (Горни Богров - Чурек)",
             startPoint: {
@@ -193,7 +212,7 @@ const ROAD_TRACKS = {
             "active_since": "2025-9-6"
         },
         {
-            id: "am-struma-sofia-malobuchino",
+            id: "am-struma-marikostinovo-damianica",
             name: "АМ Струма (Марикостиново - Дамяница)",
             startPoint: {
                 "name": "Марикостиново",
@@ -718,7 +737,7 @@ const ROAD_TRACKS = {
         },
         {
             id: "II-55",
-            name: "I-55 Килифарево - Въглевци",
+            name: "II-55 Килифарево - Въглевци",
             startPoint: {
                 "name": "Килифарево",
                 "description": "Камерите са на метална конструкция над пътя",

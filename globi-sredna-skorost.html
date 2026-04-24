@@ -298,6 +298,38 @@
             text-decoration: underline;
         }
 
+        .news-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0 0;
+        }
+
+        .news-list li {
+            border-left: 3px solid #3498db;
+            padding: 0.6rem 1rem;
+            margin-bottom: 0.8rem;
+            background: #f8fbff;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .news-list li a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .news-list li a:hover {
+            color: #3498db;
+            text-decoration: underline;
+        }
+
+        .news-source {
+            font-size: 0.8rem;
+            color: #888;
+            display: block;
+            margin-top: 0.2rem;
+        }
+
         footer {
             text-align: center;
             padding: 2rem;
@@ -377,44 +409,68 @@
             <h1 class="page-title">Глоби при средна скорост в България</h1>
             <p>Пълна и актуална таблица с глобите за превишена средна скорост от камери в България за 2026 година. Санкциите за превишена скорост, установена чрез камерите за средна скорост, са същите като при обичайните проверки и се налагат съгласно Закона за движение по пътищата (ЗДвП).</p>
 
+            <h2>Новини</h2>
+            <ul class="news-list">
+                <li>
+                    <a href="https://news.lex.bg/pregled-na-pechata/след-последните-промени-в-закона-за-дв/" target="_blank" rel="noopener">Какви са новите глоби след последните промени в закона за движението по пътищата.</a>
+                    <span class="news-source">news.lex.bg · 18 август 2025</span>
+                </li>
+                <li>
+                    <a href="https://m.novinite.bg/articles/282696/mvr-vzema-knizhki-za-sredna-skorost-ot-may" target="_blank" rel="noopener">МВР взема книжки за средна скорост от май 2026</a>
+                    <span class="news-source">novinite.bg · 02 април 2026</span>
+                </li>
+            </ul>
+
             <h2>Таблица с глоби за превишена средна скорост 2026</h2>
+            <p style="font-size:0.9rem; color:#555; margin-bottom:0.5rem;">Извън населено място — магистрали и първокласни пътища. <strong>Отнемането на контролни точки влизат в сила от 7 май 2026 г.</strong></p>
             <table class="fines-table">
                 <thead>
                     <tr>
                         <th>Превишение</th>
                         <th>Глоба</th>
+                        <th>Допълнително</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>До 10 км/ч</td>
                         <td><strong>20 лв.</strong></td>
+                        <td>—</td>
                     </tr>
                     <tr>
-                        <td>От 11 до 20 км/ч</td>
+                        <td>11–20 км/ч</td>
                         <td><strong>50 лв.</strong></td>
+                        <td>—</td>
                     </tr>
                     <tr>
-                        <td>От 21 до 30 км/ч</td>
+                        <td>21–30 км/ч</td>
                         <td><strong>100 лв.</strong></td>
+                        <td>2 контролни точки</td>
                     </tr>
                     <tr>
-                        <td>От 31 до 40 км/ч</td>
+                        <td>31–40 км/ч</td>
+                        <td><strong>300 лв.</strong></td>
+                        <td>6 точки</td>
+                    </tr>
+                    <tr>
+                        <td>41–50 км/ч</td>
                         <td><strong>400 лв.</strong></td>
-                    </tr>
-                    <tr>
-                        <td>От 41 до 50 км/ч</td>
-                        <td><strong>600 лв.</strong></td>
+                        <td>12 точки</td>
                     </tr>
                     <tr>
                         <td>Над 50 км/ч</td>
-                        <td><strong>700 лв. + 3 месеца лишаване от книжка</strong></td>
+                        <td><strong>600 лв.</strong></td>
+                        <td>18 точки + книжка 2 месеца</td>
                     </tr>
                 </tbody>
             </table>
 
             <div class="info-box info-box-warning">
                 <strong>⚠️ Важно:</strong> За всеки следващи 5 км/ч над 50 км/ч превишение глобата се увеличава с 50 лв.
+            </div>
+
+            <div class="info-box info-box-warning">
+                <strong>⚠️ Забележка:</strong> Данните за глобите и контролните точки са събрани от публично достъпни източници и може да не отразяват последните законодателни промени.
             </div>
 
             <h2>Как работи системата за средна скорост?</h2>
@@ -451,8 +507,9 @@
             <h3>Важат ли тези глоби и за магистрали?</h3>
             <p>Да, глобите за превишена средна скорост са еднакви навсякъде - на магистрали (Тракия, Хемус, Струма) и на първокласни пътища. Разликата е само в разрешената скорост на съответния участък.</p>
 
-            <h3>Препоръка</h3>
-            <p>Спазвайте ограниченията за скорост не само заради избягване на глоби, но и за вашата безопасност и безопасността на другите участници в движението!</p>
+            <div class="info-box" style="background:#eafaf1; border-left:4px solid #27ae60; margin-top:1.5rem;">
+                <strong>🛡️ Препоръка:</strong> Спазвайте ограниченията за скорост не само заради избягване на глоби, но и за вашата безопасност и безопасността на другите участници в движението!
+            </div>
         </div>
     </div>
 
