@@ -98,6 +98,93 @@ const tileLayer = L.tileLayer(currentBasemap.url, {
 // Store layers and markers
 const roadLayers = new Map();
 const roadMarkers = new Map();
+const t = window.AppI18n ? window.AppI18n.t : (key) => key;
+const currentLanguage = window.AppI18n ? window.AppI18n.currentLanguage : 'bg';
+
+const CYRILLIC_TO_LATIN = {
+    'А': 'A', 'а': 'a',
+    'Б': 'B', 'б': 'b',
+    'В': 'V', 'в': 'v',
+    'Г': 'G', 'г': 'g',
+    'Д': 'D', 'д': 'd',
+    'Е': 'E', 'е': 'e',
+    'Ж': 'Zh', 'ж': 'zh',
+    'З': 'Z', 'з': 'z',
+    'И': 'I', 'и': 'i',
+    'Й': 'Y', 'й': 'y',
+    'К': 'K', 'к': 'k',
+    'Л': 'L', 'л': 'l',
+    'М': 'M', 'м': 'm',
+    'Н': 'N', 'н': 'n',
+    'О': 'O', 'о': 'o',
+    'П': 'P', 'п': 'p',
+    'Р': 'R', 'р': 'r',
+    'С': 'S', 'с': 's',
+    'Т': 'T', 'т': 't',
+    'У': 'U', 'у': 'u',
+    'Ф': 'F', 'ф': 'f',
+    'Х': 'H', 'х': 'h',
+    'Ц': 'Ts', 'ц': 'ts',
+    'Ч': 'Ch', 'ч': 'ch',
+    'Ш': 'Sh', 'ш': 'sh',
+    'Щ': 'Sht', 'щ': 'sht',
+    'Ъ': 'a', 'ъ': 'a',
+    'Ь': 'y', 'ь': 'y',
+    'Ю': 'Yu', 'ю': 'yu',
+    'Я': 'Ya', 'я': 'ya'
+};
+
+const DESCRIPTION_TRANSLATIONS = {
+    'Камерите са на метална конструкция над пътя': 'The cameras are mounted on a metal gantry above the road',
+    'Камерите са на мост, към който няма отбивка': 'The cameras are mounted on a bridge with no pull-off nearby',
+    'Камерите са на метална конструкция над пътя след/преди тунела': 'The cameras are mounted on a metal gantry before/after the tunnel',
+    'Камерите са на мост, намиращ се до бензиностанция ЕКО': 'The cameras are mounted on a bridge near an EKO petrol station',
+    'Камерите са на метална конструкция над пътя, до Маркет \'Мустафа\'': 'The cameras are mounted on a metal gantry near Mustafa Market',
+    'Камерите са на метална конструкция над пътя на входа на Кочериново': 'The cameras are mounted on a metal gantry at the entrance to Kocherinovo',
+    'Камерите са на метална конструкция над пътя на входа на Струйно': 'The cameras are mounted on a metal gantry at the entrance to Struyno',
+    'Камерите са на метална конструкция над пътя преди кръгово движение': 'The cameras are mounted on a metal gantry before the roundabout',
+    'Камерите са на метална конструкция над пътя - на входа/изхода на Български извор. След бензиностанцията.': 'The cameras are mounted on a metal gantry at the entrance/exit of Balgarski Izvor, after the petrol station',
+    'Камерите са на метална конструкция над пътя - на разклона за Славщица': 'The cameras are mounted on a metal gantry at the turn-off for Slavshtitsa',
+    'Камерите са на метална конструкция над пътя преди/след бензиностанцията': 'The cameras are mounted on a metal gantry before/after the petrol station',
+    'Камерите са на метална конструкция над пътя близо до заведение на пътя': 'The cameras are mounted on a metal gantry near a roadside restaurant'
+};
+
+function shouldUseEnglishDisplayNames() {
+    return currentLanguage === 'en';
+}
+
+function transliterateBulgarian(text) {
+    return text.split('').map((char) => CYRILLIC_TO_LATIN[char] || char).join('');
+}
+
+function getPointDisplayName(point) {
+    return shouldUseEnglishDisplayNames() ? transliterateBulgarian(point.name) : point.name;
+}
+
+function getPointDisplayDescription(point) {
+    if (!point.description || !shouldUseEnglishDisplayNames()) {
+        return point.description;
+    }
+
+    return DESCRIPTION_TRANSLATIONS[point.description] || transliterateBulgarian(point.description);
+}
+
+function getRoadDisplayName(road) {
+    if (!shouldUseEnglishDisplayNames()) {
+        return road.name;
+    }
+
+    return transliterateBulgarian(road.name)
+        .replace(/^AM Trakiya/, 'A1 Trakia Motorway')
+        .replace(/^AM Hemus/, 'A2 Hemus Motorway')
+        .replace(/^AM Struma/, 'A3 Struma Motorway')
+        .replace(/^AM Maritsa/, 'A4 Maritsa Motorway')
+        .replace(/\btunel\b/g, 'tunnel');
+}
+
+function getLocalAssetPath(path) {
+    return window.location.pathname.startsWith('/en/') ? `../${path}` : path;
+}
 
 // Create collapsible road controls
 function createRoadControls(allRoads) {
@@ -107,14 +194,14 @@ function createRoadControls(allRoads) {
     // Create the collapsible structure - starts collapsed
     const controlsHTML = `
         <div class="controls-header" onclick="toggleControls()">
-            <h3>Отсечки за средна скорост (${allRoads.length})</h3>
+            <h3>${t('controls.title')} (${allRoads.length})</h3>
             <button class="controls-toggle" id="controls-toggle">▲</button>
         </div>
         <div class="controls-content" id="controls-content">
             ${allRoads.map(road => `
                 <div class="control-item">
                     <input type="checkbox" id="road-${road.id}" checked>
-                    <label for="road-${road.id}">${road.name} (${road.distance} км)</label>
+                    <label for="road-${road.id}">${getRoadDisplayName(road)} (${road.distance} ${t('controls.distanceUnit')})</label>
                 </div>
             `).join('')}
         </div>
@@ -159,25 +246,25 @@ function createLegend() {
     // Create the collapsible structure - starts collapsed
     const legendHTML = `
         <div class="legend-header" onclick="toggleLegend()">
-            <h3>📊 Статистики & Легенда</h3>
+            <h3>${t('legend.title')}</h3>
             <button class="legend-toggle" id="legend-toggle">▲</button>
         </div>
         <div class="legend-content" id="legend-content">
             <div class="legend-stats">
                 <div class="legend-stat">
-                    <span class="legend-stat-label">По пътища:</span>
+                    <span class="legend-stat-label">${t('legend.mainRoadsCount')}</span>
                     <span class="legend-stat-value" id="main-roads-count">-</span>
                 </div>
                 <div class="legend-stat">
-                    <span class="legend-stat-label">Пътища км.:</span>
+                    <span class="legend-stat-label">${t('legend.mainRoadsDistance')}</span>
                     <span class="legend-stat-value" id="main-roads-distance">-</span>
                 </div>
                 <div class="legend-stat">
-                    <span class="legend-stat-label">По магистрала:</span>
+                    <span class="legend-stat-label">${t('legend.highwaysCount')}</span>
                     <span class="legend-stat-value" id="highways-count">-</span>
                 </div>
                 <div class="legend-stat">
-                    <span class="legend-stat-label">Магистрала км.:</span>
+                    <span class="legend-stat-label">${t('legend.highwaysDistance')}</span>
                     <span class="legend-stat-value" id="highways-distance">-</span>
                 </div>
             </div>
@@ -186,19 +273,19 @@ function createLegend() {
                 <div class="legend-color-item">
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
                         <div style="width: 30px; height: 4px; background: #FF0000; border-radius: 2px;"></div>
-                        <span style="font-size: 0.85rem; color: #2c3e50;">Нови отсечки</span>
+                        <span style="font-size: 0.85rem; color: #2c3e50;">${t('legend.newestRoads')}</span>
                     </div>
                 </div>
                 <div class="legend-color-item">
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
                         <div style="width: 30px; height: 4px; background: #13d90cff; border-radius: 2px;"></div>
-                        <span style="font-size: 0.85rem; color: #2c3e50;">Магистрали</span>
+                        <span style="font-size: 0.85rem; color: #2c3e50;">${t('legend.highways')}</span>
                     </div>
                 </div>
                 <div class="legend-color-item">
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
                         <div style="width: 30px; height: 4px; background: #2980b9; border-radius: 2px;"></div>
-                        <span style="font-size: 0.85rem; color: #2c3e50;">Пътища</span>
+                        <span style="font-size: 0.85rem; color: #2c3e50;">${t('legend.roads')}</span>
                     </div>
                 </div>
             </div>
@@ -300,6 +387,8 @@ function createIndividualRoadLayer(road, color, isNewest = false) {
 // Create point markers
 function createPointMarker(point, roadName, type, isNewest = false) {
     const isHighway = type === 'highway';
+    const pointDisplayName = getPointDisplayName(point);
+    const pointDescription = getPointDisplayDescription(point);
     let backgroundColor;
 
     // Use red color for newest roads, otherwise use default colors
@@ -312,31 +401,31 @@ function createPointMarker(point, roadName, type, isNewest = false) {
     const marker = L.marker(point.coordinates, {
         icon: L.divIcon({
             className: 'point-marker',
-            html: `<div style="background: ${backgroundColor}; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; white-space: nowrap;">${point.name}</div>`,
+            html: `<div style="background: ${backgroundColor}; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; white-space: nowrap;">${pointDisplayName}</div>`,
             iconSize: null,
             iconAnchor: [0, 0]
         })
     });
 
     const imageName = point.image;
-    const imagePath = `camera-images/${imageName}`;
+    const imagePath = getLocalAssetPath(`camera-images/${imageName}`);
 
     const popupContent = `
         <div class="point-popup">
             <div class="popup-header">
-                <h3>${point.name}</h3>
+                <h3>${pointDisplayName}</h3>
             </div>
             
             <div class="popup-body">
                 <div class="coordinates">
-                    <strong>${point.description ? `${point.description}` : ''}</strong>
+                    <strong>${pointDescription ? `${pointDescription}` : ''}</strong>
                 </div>
                 
                 <div class="coordinates">
-                    <strong>Coordinates:</strong> ${point.coordinates[0].toFixed(4)}, ${point.coordinates[1].toFixed(4)}
+                    <strong>${t('popup.coordinates')}</strong> ${point.coordinates[0].toFixed(4)}, ${point.coordinates[1].toFixed(4)}
                 </div>
                 <div class="road-image">
-                    <img src="${imagePath}" alt="${point.name}" />
+                    <img src="${imagePath}" alt="${pointDisplayName}" />
                 </div>
             </div>
         </div>
@@ -355,26 +444,29 @@ function createRoadPolyline(road, color, layer, coordinates) {
         opacity: 0.9
     }).addTo(layer);
 
-    const coordinateInfo = coordinates.length > 2 ? 'Exact road geometry' : 'Straight line approximation';
+    const coordinateInfo = coordinates.length > 2 ? t('popup.exactGeometry') : t('popup.approximateGeometry');
+    const roadDisplayName = getRoadDisplayName(road);
+    const startPointName = getPointDisplayName(road.startPoint);
+    const endPointName = getPointDisplayName(road.endPoint);
 
     // Create popup content with consistent styling to match point popups
     const popupContent = `
         <div class="point-popup">
             <div class="popup-header">
-                <h3>${road.name}</h3>
+                <h3>${roadDisplayName}</h3>
             </div>
             
             <div class="popup-body">
                 <div class="road-info-section">
-                    <p><strong>Route:</strong> ${road.startPoint.name} → ${road.endPoint.name}</p>
-                    <p><strong>Speed Limit:</strong> <span class="speed-limit">${road.speedLimit} km/h</span></p>
-                    <p><strong>Road Type:</strong> ${getRoadType(road.speedLimit)}</p>
-                    ${road.segment ? `<p><strong>Segment:</strong> ${road.segment}/2</p>` : ''}
-                    <p><strong>Distance:</strong> ${road.distance} kilometers</p>
+                    <p><strong>${t('popup.route')}</strong> ${startPointName} → ${endPointName}</p>
+                    <p><strong>${t('popup.speedLimit')}</strong> <span class="speed-limit">${road.speedLimit} ${t('popup.speedUnit')}</span></p>
+                    <p><strong>${t('popup.roadType')}</strong> ${getRoadType(road.speedLimit)}</p>
+                    ${road.segment ? `<p><strong>${t('popup.segment')}</strong> ${road.segment}/2</p>` : ''}
+                    <p><strong>${t('popup.distance')}</strong> ${road.distance} ${t('popup.distanceUnit')}</p>
                 </div>
                 
                 <div class="coordinates">
-                    <strong>Geometry:</strong> ${coordinateInfo} (${coordinates.length} points)
+                    <strong>${t('popup.geometry')}</strong> ${coordinateInfo} (${coordinates.length} ${t('popup.points')})
                 </div>
             </div>
         </div>
@@ -387,9 +479,9 @@ function createRoadPolyline(road, color, layer, coordinates) {
 
 // Get road type based on speed limit
 function getRoadType(speedLimit) {
-    if (speedLimit >= 130) return "Highway";
-    if (speedLimit >= 90) return "Main Road";
-    return "Secondary Road";
+    if (speedLimit >= 130) return t('popup.roadTypes.highway');
+    if (speedLimit >= 90) return t('popup.roadTypes.mainRoad');
+    return t('popup.roadTypes.secondaryRoad');
 }
 
 // Show/hide loading message
@@ -425,7 +517,7 @@ async function initializeBulgariaMap() {
     // Check if cached data is loaded
     if (typeof window.RoadData === 'undefined') {
         console.error('❌ roads-data-cached.js file not loaded!');
-        alert('Error: roads-data-cached.js file not found. Please ensure the file is in the same folder.');
+        alert(t('errors.missingRoadData'));
         return;
     }
 
@@ -454,7 +546,7 @@ async function initializeBulgariaMap() {
 
     // Find the most recent active_since date
     const newestDate = findNewestActiveDate(allRoads);
-    console.log('Most recent active_since date:', newestDate);
+    console.log(t('console.newestActiveDate'), newestDate);
 
     // Create controls
     createRoadControls(allRoads);
@@ -523,9 +615,9 @@ function updateLegendStats() {
 
     // Update DOM elements
     document.getElementById('highways-count').textContent = highwaysCount;
-    document.getElementById('highways-distance').textContent = highwaysDistance.toFixed(2) + ' км';
+    document.getElementById('highways-distance').textContent = highwaysDistance.toFixed(2) + ' ' + t('controls.distanceUnit');
     document.getElementById('main-roads-count').textContent = mainRoadsCount;
-    document.getElementById('main-roads-distance').textContent = mainRoadsDistance.toFixed(2) + ' км';
+    document.getElementById('main-roads-distance').textContent = mainRoadsDistance.toFixed(2) + ' ' + t('controls.distanceUnit');
 }
 
 

@@ -31,6 +31,9 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://bg-speed-zones.com/">
+    <link rel="alternate" hreflang="bg" href="https://bg-speed-zones.com/">
+    <link rel="alternate" hreflang="en" href="https://bg-speed-zones.com/en/">
+    <link rel="alternate" hreflang="x-default" href="https://bg-speed-zones.com/">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
     <link rel="stylesheet" href="styles.css" />
@@ -70,12 +73,17 @@
     <div class="header">
         <div class="header-content">
             <div class="header-text">
-                <h1>Отсечки средна скорост България (към 24.04.2026)</h1>
+                <h1 data-i18n="header.title">Отсечки средна скорост България (към 24.04.2026)</h1>
             </div>
             <div class="header-buttons">
-                <a href="globi-sredna-skorost.html" class="about-button" style="text-decoration: none;">💰 Глоби</a>
-                <a href="statistika.html" class="about-button" style="text-decoration: none;">📊 Статистика</a>
-                <a href="za-kartata.html" class="about-button" style="text-decoration: none;">ℹ️ За картата</a>
+                <a href="globi-sredna-skorost.html" class="about-button" style="text-decoration: none;" data-i18n="header.fines">💰 Глоби</a>
+                <a href="statistika.html" class="about-button" style="text-decoration: none;" data-i18n="header.statistics">📊 Статистика</a>
+                <a href="za-kartata.html" class="about-button" style="text-decoration: none;" data-i18n="header.about">ℹ️ За картата</a>
+                <div class="language-switcher" aria-label="Language selector">
+                    <span class="language-switcher-label" data-i18n="languageSwitcher.label">Език</span>
+                    <a href="/" class="language-option" data-lang-option="bg" data-i18n="languageSwitcher.bg">BG</a>
+                    <a href="/en/" class="language-option" data-lang-option="en" data-i18n="languageSwitcher.en">EN</a>
+                </div>
             </div>
         </div>
 
@@ -84,7 +92,7 @@
     <div class="map-container">
         <div id="map"></div>
         <div id="loading" class="loading-message" style="display: none;">
-            🛣️ Loading exact road segments from configuration file...
+            <span data-i18n="loading.roads">🛣️ Зареждане на отсечките...</span>
         </div>
 
         <div class="legend"></div>
@@ -99,14 +107,17 @@
     <!-- SEO Footer -->
     <footer style="background: #2c3e50; color: rgba(255,255,255,0.8); padding: 1.5rem 2rem; font-size: 0.85rem; line-height: 1.6;">
         <div style="max-width: 900px; margin: 0 auto;">
-            <p>Интерактивна карта на всички сертифицирани отсечки за средна скорост на магистрали и първокласни пътища в България. Камери за средна скорост на магистрали Тракия, Хемус, Струма и първокласни пътища.</p>
-            <p style="margin-top: 0.8rem;"><a href="globi-sredna-skorost.html" style="color: #5dade2; text-decoration: none;">💰 Глоби при средна скорост</a> - пълна таблица с глоби и санкции за превишена средна скорост в България.</p>
-            <p style="margin-top: 0.8rem; font-size: 0.8rem; opacity: 0.7;">&copy; 2026 bg-speed-zones.com | Данни от <a href="https://www.bgtoll.bg/vaprosi-i-otgovori/sredna-skorost/wim" style="color: #5dade2; text-decoration: none;">BG Toll</a></p>
+            <p data-i18n="footer.description">Интерактивна карта на всички сертифицирани отсечки за средна скорост на магистрали и първокласни пътища в България. Камери за средна скорост на магистрали Тракия, Хемус, Струма и първокласни пътища.</p>
+            <p style="margin-top: 0.8rem;"><a href="globi-sredna-skorost.html" style="color: #5dade2; text-decoration: none;" data-i18n="footer.finesLink">💰 Глоби при средна скорост</a> - <span data-i18n="footer.finesDescription">пълна таблица с глоби и санкции за превишена средна скорост в България.</span></p>
+            <p style="margin-top: 0.8rem; font-size: 0.8rem; opacity: 0.7;"><span data-i18n="footer.copyright">&copy; 2026 bg-speed-zones.com | Данни от</span> <a href="https://www.bgtoll.bg/vaprosi-i-otgovori/sredna-skorost/wim" style="color: #5dade2; text-decoration: none;">BG Toll</a></p>
         </div>
     </footer>
 
     <!-- External JavaScript files -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="locales/bg.js"></script>
+    <script src="locales/en.js"></script>
+    <script src="i18n.js"></script>
     <script src="roads-data-cached.js"></script>
     <script src="map-script.js"></script>
 </body>

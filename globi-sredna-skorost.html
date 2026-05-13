@@ -31,6 +31,9 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://bg-speed-zones.com/globi-sredna-skorost.html">
+    <link rel="alternate" hreflang="bg" href="https://bg-speed-zones.com/globi-sredna-skorost.html">
+    <link rel="alternate" hreflang="en" href="https://bg-speed-zones.com/en/globi-sredna-skorost.html">
+    <link rel="alternate" hreflang="x-default" href="https://bg-speed-zones.com/globi-sredna-skorost.html">
 
     <!-- Structured Data - Article -->
     <script type="application/ld+json">
@@ -162,6 +165,32 @@
 
         nav a:hover {
             background: rgba(255, 255, 255, 0.3);
+        }
+
+        .language-switcher {
+            display: inline-flex;
+            gap: 0.25rem;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 6px;
+            padding: 0.25rem;
+        }
+
+        .language-switcher a {
+            border: 0;
+            border-radius: 4px;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.35rem 0.5rem;
+        }
+
+        .language-switcher a:hover,
+        .language-switcher a.active {
+            background: white;
+            color: #2c3e50;
         }
 
         .content {
@@ -388,52 +417,56 @@
     </style>
 </head>
 
-<body>
+<body data-page="fines">
     <div class="header">
         <div class="header-content">
-            <h1>💰 Глоби</h1>
+            <h1 data-i18n="pages.fines.headerTitle">💰 Глоби</h1>
             <nav>
-                <a href="index.html">🗺️ Карта</a>
-                <a href="statistika.html">📊 Статистика</a>
-                <a href="za-kartata.html">ℹ️ За картата</a>
+                <a href="index.html" data-i18n="nav.map">🗺️ Карта</a>
+                <a href="statistika.html" data-i18n="nav.statistics">📊 Статистика</a>
+                <a href="za-kartata.html" data-i18n="nav.about">ℹ️ За картата</a>
+                <span class="language-switcher">
+                    <a href="/globi-sredna-skorost.html" data-lang-option="bg">BG</a>
+                    <a href="/en/globi-sredna-skorost.html" data-lang-option="en">EN</a>
+                </span>
             </nav>
         </div>
     </div>
 
     <div class="content">
         <div class="breadcrumb">
-            <a href="index.html">Начало - Карта</a> &raquo; Глоби при средна скорост
+            <a href="index.html" data-i18n="pages.fines.breadcrumbHome">Начало - Карта</a> &raquo; <span data-i18n="pages.fines.breadcrumbCurrent">Глоби при средна скорост</span>
         </div>
 
         <div class="main-card">
-            <h1 class="page-title">Глоби при средна скорост в България</h1>
-            <p>Пълна и актуална таблица с глобите за превишена средна скорост от камери в България за 2026 година. Санкциите за превишена скорост, установена чрез камерите за средна скорост, са същите като при обичайните проверки и се налагат съгласно Закона за движение по пътищата (ЗДвП).</p>
+            <h1 class="page-title" data-i18n="pages.fines.pageTitle">Глоби при средна скорост в България</h1>
+            <p data-i18n="pages.fines.intro">Пълна и актуална таблица с глобите за превишена средна скорост от камери в България за 2026 година. Санкциите за превишена скорост, установена чрез камерите за средна скорост, са същите като при обичайните проверки и се налагат съгласно Закона за движение по пътищата (ЗДвП).</p>
 
-            <h2>Новини</h2>
+            <h2 data-i18n="pages.fines.newsTitle">Новини</h2>
             <ul class="news-list">
                 <li>
-                    <a href="https://news.lex.bg/pregled-na-pechata/след-последните-промени-в-закона-за-дв/" target="_blank" rel="noopener">Какви са новите глоби след последните промени в закона за движението по пътищата.</a>
-                    <span class="news-source">news.lex.bg · 18 август 2025</span>
+                    <a href="https://news.lex.bg/pregled-na-pechata/след-последните-промени-в-закона-за-дв/" target="_blank" rel="noopener" data-i18n="pages.fines.newsFirst">Какви са новите глоби след последните промени в закона за движението по пътищата.</a>
+                    <span class="news-source" data-i18n="pages.fines.newsFirstSource">news.lex.bg · 18 август 2025</span>
                 </li>
                 <li>
-                    <a href="https://m.novinite.bg/articles/282696/mvr-vzema-knizhki-za-sredna-skorost-ot-may" target="_blank" rel="noopener">МВР взема книжки за средна скорост от май 2026</a>
-                    <span class="news-source">novinite.bg · 02 април 2026</span>
+                    <a href="https://m.novinite.bg/articles/282696/mvr-vzema-knizhki-za-sredna-skorost-ot-may" target="_blank" rel="noopener" data-i18n="pages.fines.newsSecond">МВР взема книжки за средна скорост от май 2026</a>
+                    <span class="news-source" data-i18n="pages.fines.newsSecondSource">novinite.bg · 02 април 2026</span>
                 </li>
             </ul>
 
-            <h2>Таблица с глоби за превишена средна скорост 2026</h2>
-            <p style="font-size:0.9rem; color:#555; margin-bottom:0.5rem;">Извън населено място — магистрали и първокласни пътища. <strong>Отнемането на контролни точки влизат в сила от 7 май 2026 г.</strong></p>
+            <h2 data-i18n="pages.fines.tableTitle">Таблица с глоби за превишена средна скорост 2026</h2>
+            <p style="font-size:0.9rem; color:#555; margin-bottom:0.5rem;" data-i18n="pages.fines.tableNote">Извън населено място - магистрали и първокласни пътища. Отнемането на контролни точки влизат в сила от 7 май 2026 г.</p>
             <table class="fines-table">
                 <thead>
                     <tr>
-                        <th>Превишение</th>
-                        <th>Глоба</th>
-                        <th>Допълнително</th>
+                        <th data-i18n="pages.fines.excess">Превишение</th>
+                        <th data-i18n="pages.fines.fine">Глоба</th>
+                        <th data-i18n="pages.fines.additional">Допълнително</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>До 10 км/ч</td>
+                        <td data-i18n="pages.fines.upTo10">До 10 км/ч</td>
                         <td><strong>20 лв.</strong></td>
                         <td>—</td>
                     </tr>
@@ -445,77 +478,80 @@
                     <tr>
                         <td>21–30 км/ч</td>
                         <td><strong>100 лв.</strong></td>
-                        <td>2 контролни точки</td>
+                        <td data-i18n="pages.fines.points2">2 контролни точки</td>
                     </tr>
                     <tr>
                         <td>31–40 км/ч</td>
                         <td><strong>300 лв.</strong></td>
-                        <td>6 точки</td>
+                        <td data-i18n="pages.fines.points6">6 точки</td>
                     </tr>
                     <tr>
                         <td>41–50 км/ч</td>
                         <td><strong>400 лв.</strong></td>
-                        <td>12 точки</td>
+                        <td data-i18n="pages.fines.points12">12 точки</td>
                     </tr>
                     <tr>
-                        <td>Над 50 км/ч</td>
+                        <td data-i18n="pages.fines.over50">Над 50 км/ч</td>
                         <td><strong>600 лв.</strong></td>
-                        <td>18 точки + книжка 2 месеца</td>
+                        <td data-i18n="pages.fines.points18">18 точки + книжка 2 месеца</td>
                     </tr>
                 </tbody>
             </table>
 
             <div class="info-box info-box-warning">
-                <strong>⚠️ Важно:</strong> За всеки следващи 5 км/ч над 50 км/ч превишение глобата се увеличава с 50 лв.
+                <span data-i18n="pages.fines.important">⚠️ Важно: За всеки следващи 5 км/ч над 50 км/ч превишение глобата се увеличава с 50 лв.</span>
             </div>
 
             <div class="info-box info-box-warning">
-                <strong>⚠️ Забележка:</strong> Данните за глобите и контролните точки са събрани от публично достъпни източници и може да не отразяват последните законодателни промени.
+                <span data-i18n="pages.fines.disclaimer">⚠️ Забележка: Данните за глобите и контролните точки са събрани от публично достъпни източници и може да не отразяват последните законодателни промени.</span>
             </div>
 
-            <h2>Как работи системата за средна скорост?</h2>
-            <p>Камерите за средна скорост засичат преминаването на автомобила през началото и края на определен участък. Ако времето, за което е изминат участъкът, показва по-висока средна скорост от разрешената, автоматично се издава електронен фиш.</p>
+            <h2 data-i18n="pages.fines.howTitle">Как работи системата за средна скорост?</h2>
+            <p data-i18n="pages.fines.howText">Камерите за средна скорост засичат преминаването на автомобила през началото и края на определен участък. Ако времето, за което е изминат участъкът, показва по-висока средна скорост от разрешената, автоматично се издава електронен фиш.</p>
 
             <div class="info-box info-box-info">
-                <strong>💡 Полезно да знаете:</strong>
+                <strong data-i18n="pages.fines.usefulTitle">💡 Полезно да знаете:</strong>
                 <ul>
-                    <li>Системата изчислява <strong>средната скорост</strong> по целия участък между двете камери</li>
-                    <li>Не помага краткото намаляване на скоростта при камерите</li>
-                    <li>Глобата се издава автоматично чрез електронен фиш, без нужда от физическа проверка</li>
-                    <li>Глобите важат еднакво за магистрали и първокласни пътища</li>
+                    <li data-i18n="pages.fines.useful1">Системата изчислява средната скорост по целия участък между двете камери</li>
+                    <li data-i18n="pages.fines.useful2">Не помага краткото намаляване на скоростта при камерите</li>
+                    <li data-i18n="pages.fines.useful3">Глобата се издава автоматично чрез електронен фиш, без нужда от физическа проверка</li>
+                    <li data-i18n="pages.fines.useful4">Глобите важат еднакво за магистрали и първокласни пътища</li>
                 </ul>
             </div>
 
-            <h2>Къде има камери за средна скорост?</h2>
-            <p>В България има сертифицирани отсечки за средна скорост на магистрали Тракия, Хемус и Струма, както и на множество първокласни пътища. Вижте всички отсечки на интерактивната карта:</p>
-            <a href="index.html" class="map-link">🗺️ Вижте картата с всички отсечки</a>
+            <h2 data-i18n="pages.fines.whereTitle">Къде има камери за средна скорост?</h2>
+            <p data-i18n="pages.fines.whereText">В България има сертифицирани отсечки за средна скорост на магистрали Тракия, Хемус и Струма, както и на множество първокласни пътища. Вижте всички отсечки на интерактивната карта:</p>
+            <a href="index.html" class="map-link" data-i18n="pages.fines.viewMap">🗺️ Вижте картата с всички отсечки</a>
 
-            <h2>Правна основа</h2>
-            <p>Глобите за превишена средна скорост се налагат съгласно <strong>Закона за движение по пътищата (ЗДвП)</strong> на Република България, чл. 182, ал. 1 и 2. Санкциите са идентични с тези при установяване на превишена скорост чрез стационарни или мобилни камери.</p>
+            <h2 data-i18n="pages.fines.legalTitle">Правна основа</h2>
+            <p data-i18n="pages.fines.legalText">Глобите за превишена средна скорост се налагат съгласно Закона за движение по пътищата (ЗДвП) на Република България, чл. 182, ал. 1 и 2. Санкциите са идентични с тези при установяване на превишена скорост чрез стационарни или мобилни камери.</p>
 
-            <h2>Често задавани въпроси</h2>
+            <h2 data-i18n="pages.fines.faqTitle">Често задавани въпроси</h2>
 
-            <h3>Колко е глобата за превишена средна скорост?</h3>
-            <p>Глобата зависи от размера на превишението - от 20 лв. за до 10 км/ч превишение до 700 лв. + лишаване от книжка за над 50 км/ч. Вижте пълната таблица по-горе.</p>
+            <h3 data-i18n="pages.fines.faqFineTitle">Колко е глобата за превишена средна скорост?</h3>
+            <p data-i18n="pages.fines.faqFineText">Глобата зависи от размера на превишението - от 20 лв. за до 10 км/ч превишение до 700 лв. + лишаване от книжка за над 50 км/ч. Вижте пълната таблица по-горе.</p>
 
-            <h3>Може ли да се избегне глоба като се намали скоростта при камерите?</h3>
-            <p>Не. Системата за средна скорост изчислява средната скорост по целия участък между двете камери, а не моментната скорост при всяка камера поотделно. Единственият начин да не получите глоба е да поддържате средна скорост под ограничението за целия участък.</p>
+            <h3 data-i18n="pages.fines.faqSlowTitle">Може ли да се избегне глоба като се намали скоростта при камерите?</h3>
+            <p data-i18n="pages.fines.faqSlowText">Не. Системата за средна скорост изчислява средната скорост по целия участък между двете камери, а не моментната скорост при всяка камера поотделно. Единственият начин да не получите глоба е да поддържате средна скорост под ограничението за целия участък.</p>
 
-            <h3>Как се получава глобата от камера за средна скорост?</h3>
-            <p>При установяване на превишена средна скорост се издава автоматично електронен фиш, който се изпраща на адреса на собственика на автомобила. Не е необходима физическа проверка от полицейски служител.</p>
+            <h3 data-i18n="pages.fines.faqReceiveTitle">Как се получава глобата от камера за средна скорост?</h3>
+            <p data-i18n="pages.fines.faqReceiveText">При установяване на превишена средна скорост се издава автоматично електронен фиш, който се изпраща на адреса на собственика на автомобила. Не е необходима физическа проверка от полицейски служител.</p>
 
-            <h3>Важат ли тези глоби и за магистрали?</h3>
-            <p>Да, глобите за превишена средна скорост са еднакви навсякъде - на магистрали (Тракия, Хемус, Струма) и на първокласни пътища. Разликата е само в разрешената скорост на съответния участък.</p>
+            <h3 data-i18n="pages.fines.faqMotorwaysTitle">Важат ли тези глоби и за магистрали?</h3>
+            <p data-i18n="pages.fines.faqMotorwaysText">Да, глобите за превишена средна скорост са еднакви навсякъде - на магистрали (Тракия, Хемус, Струма) и на първокласни пътища. Разликата е само в разрешената скорост на съответния участък.</p>
 
             <div class="info-box" style="background:#eafaf1; border-left:4px solid #27ae60; margin-top:1.5rem;">
-                <strong>🛡️ Препоръка:</strong> Спазвайте ограниченията за скорост не само заради избягване на глоби, но и за вашата безопасност и безопасността на другите участници в движението!
+                <span data-i18n="pages.fines.recommendation">🛡️ Препоръка: Спазвайте ограниченията за скорост не само заради избягване на глоби, но и за вашата безопасност и безопасността на другите участници в движението!</span>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 <a href="index.html">bg-speed-zones.com</a> - Интерактивна карта на отсечки средна скорост в България</p>
+        <p>&copy; 2026 <a href="index.html">bg-speed-zones.com</a> - <span data-i18n="siteFooter.text">Интерактивна карта на отсечки средна скорост в България</span></p>
     </footer>
+    <script src="locales/bg.js"></script>
+    <script src="locales/en.js"></script>
+    <script src="i18n.js"></script>
 </body>
 
 </html>

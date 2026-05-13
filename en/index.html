@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="../speedometer.png">
+
+    <!-- Primary Meta Tags -->
+    <title>Average Speed Camera Sections in Bulgaria - Map</title>
+    <meta name="title" content="Average Speed Camera Sections in Bulgaria - Map">
+    <meta name="description" content="Interactive map of certified average speed control sections in Bulgaria, including motorways, main roads, camera locations, speed limits and coordinates.">
+    <meta name="keywords" content="average speed cameras Bulgaria, Bulgaria speed cameras map, average speed control Bulgaria roads, speed limit cameras Bulgaria, Bulgaria toll average speed sections, Bulgaria motorway speed cameras, Bulgaria road speed limits">
+    <meta name="author" content="Valeri Penchev">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bg-speed-zones.com/en/">
+    <meta property="og:title" content="Average Speed Camera Sections in Bulgaria - Map">
+    <meta property="og:description" content="Interactive map of certified average speed control sections in Bulgaria, including motorways, main roads, camera locations, speed limits and coordinates.">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bg-speed-zones.com/en/">
+    <meta property="twitter:title" content="Average Speed Camera Sections in Bulgaria - Map">
+    <meta property="twitter:description" content="Interactive map of certified average speed control sections in Bulgaria, including motorways, main roads, camera locations, speed limits and coordinates.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bg-speed-zones.com/en/">
+    <link rel="alternate" hreflang="bg" href="https://bg-speed-zones.com/">
+    <link rel="alternate" hreflang="en" href="https://bg-speed-zones.com/en/">
+    <link rel="alternate" hreflang="x-default" href="https://bg-speed-zones.com/">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <link rel="stylesheet" href="../styles.css" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Average Speed Camera Sections in Bulgaria - Map",
+      "description": "Interactive map of certified average speed control sections in Bulgaria, including motorways, main roads, camera locations, speed limits and coordinates.",
+      "url": "https://bg-speed-zones.com/en/",
+      "applicationCategory": "MapApplication",
+      "operatingSystem": "Any",
+      "author": {
+        "@type": "Person",
+        "name": "Valeri Penchev",
+        "email": "valeri.projects@gmail.com"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Valeri Penchev"
+      },
+      "dateModified": "2026-02-09",
+      "inLanguage": "en",
+      "keywords": "average speed cameras Bulgaria, Bulgaria speed cameras map, average speed control Bulgaria roads, speed limit cameras Bulgaria, Bulgaria toll average speed sections",
+      "about": {
+        "@type": "Thing",
+        "name": "Average speed camera sections in Bulgaria",
+        "description": "Certified average speed control sections on Bulgarian roads and motorways"
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="header-text">
+                <h1 data-i18n="header.title">Average Speed Camera Sections in Bulgaria (as of 24.04.2026)</h1>
+            </div>
+            <div class="header-buttons">
+                <a href="globi-sredna-skorost.html" class="about-button" style="text-decoration: none;" data-i18n="header.fines">💰 Fines</a>
+                <a href="statistika.html" class="about-button" style="text-decoration: none;" data-i18n="header.statistics">📊 Statistics</a>
+                <a href="za-kartata.html" class="about-button" style="text-decoration: none;" data-i18n="header.about">ℹ️ About the map</a>
+                <div class="language-switcher" aria-label="Language selector">
+                    <span class="language-switcher-label" data-i18n="languageSwitcher.label">Language</span>
+                    <a href="/" class="language-option" data-lang-option="bg" data-i18n="languageSwitcher.bg">BG</a>
+                    <a href="/en/" class="language-option" data-lang-option="en" data-i18n="languageSwitcher.en">EN</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="map-container">
+        <div id="map"></div>
+        <div id="loading" class="loading-message" style="display: none;">
+            <span data-i18n="loading.roads">🛣️ Loading road sections...</span>
+        </div>
+
+        <div class="legend"></div>
+
+        <div class="controls">
+            <div id="road-controls">
+                <!-- Road toggles will be dynamically generated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO Footer -->
+    <footer style="background: #2c3e50; color: rgba(255,255,255,0.8); padding: 1.5rem 2rem; font-size: 0.85rem; line-height: 1.6;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <p data-i18n="footer.description">Interactive map of all certified average speed control sections on motorways and main roads in Bulgaria. Average speed cameras on Trakia, Hemus, Struma motorways and first-class roads.</p>
+            <p style="margin-top: 0.8rem;"><a href="globi-sredna-skorost.html" style="color: #5dade2; text-decoration: none;" data-i18n="footer.finesLink">💰 Average speed fines</a> - <span data-i18n="footer.finesDescription">complete table of fines and sanctions for speeding based on average speed in Bulgaria.</span></p>
+            <p style="margin-top: 0.8rem; font-size: 0.8rem; opacity: 0.7;"><span data-i18n="footer.copyright">© 2026 bg-speed-zones.com | Data from</span> <a href="https://www.bgtoll.bg/vaprosi-i-otgovori/sredna-skorost/wim" style="color: #5dade2; text-decoration: none;">BG Toll</a></p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="../locales/bg.js"></script>
+    <script src="../locales/en.js"></script>
+    <script src="../i18n.js"></script>
+    <script src="../roads-data-cached.js"></script>
+    <script src="../map-script.js"></script>
+</body>
+
+</html>

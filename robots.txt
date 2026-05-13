@@ -16,4 +16,3 @@ Allow: /
 # Disallow crawling of specific files and directories
 User-agent: *
 Disallow: /cache-generator/
-Disallow: /about-modal.html

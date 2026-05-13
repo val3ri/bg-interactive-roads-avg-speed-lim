@@ -538,6 +538,41 @@ body {
     align-items: center;
 }
 
+.language-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 6px;
+    padding: 0.25rem;
+}
+
+.language-switcher-label {
+    padding: 0 0.4rem;
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+.language-option {
+    display: inline-block;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.35rem 0.5rem;
+    text-decoration: none;
+}
+
+.language-option:hover,
+.language-option.active {
+    background: white;
+    color: #2c3e50;
+}
+
 /* ===== STATISTICS MODAL SPECIFIC STYLES ===== */
 .chart-container {
     position: relative;
@@ -623,6 +658,11 @@ body {
         min-width: 150px;
         font-size: 0.85rem;
         padding: 0.5rem 0.8rem;
+    }
+
+    .language-switcher {
+        width: 100%;
+        justify-content: center;
     }
 
     /* Modal adjustments */

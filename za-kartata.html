@@ -31,6 +31,9 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://bg-speed-zones.com/za-kartata.html">
+    <link rel="alternate" hreflang="bg" href="https://bg-speed-zones.com/za-kartata.html">
+    <link rel="alternate" hreflang="en" href="https://bg-speed-zones.com/en/za-kartata.html">
+    <link rel="alternate" hreflang="x-default" href="https://bg-speed-zones.com/za-kartata.html">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -41,6 +44,9 @@
         nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
         nav a { color: white; text-decoration: none; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.9rem; transition: all 0.3s ease; white-space: nowrap; }
         nav a:hover { background: rgba(255,255,255,0.3); }
+        .language-switcher { display: inline-flex; gap: 0.25rem; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.28); border-radius: 6px; padding: 0.25rem; }
+        .language-switcher a { border: 0; border-radius: 4px; background: transparent; color: white; cursor: pointer; font-size: 0.8rem; font-weight: 700; padding: 0.35rem 0.5rem; }
+        .language-switcher a:hover, .language-switcher a.active { background: white; color: #2c3e50; }
         .content { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
         .main-card { background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); padding: 2rem; margin-bottom: 2rem; }
         h1.page-title { color: #2c3e50; font-size: 1.8rem; margin-bottom: 1rem; }
@@ -70,76 +76,79 @@
     </style>
 </head>
 
-<body>
+<body data-page="about">
     <div class="header">
         <div class="header-content">
-            <h1>ℹ️ За картата</h1>
+            <h1 data-i18n="pages.about.headerTitle">ℹ️ За картата</h1>
             <nav>
-                <a href="index.html">🗺️ Карта</a>
-                <a href="globi-sredna-skorost.html">💰 Глоби</a>
-                <a href="statistika.html">📊 Статистика</a>
+                <a href="index.html" data-i18n="nav.map">🗺️ Карта</a>
+                <a href="globi-sredna-skorost.html" data-i18n="nav.fines">💰 Глоби</a>
+                <a href="statistika.html" data-i18n="nav.statistics">📊 Статистика</a>
+                <span class="language-switcher">
+                    <a href="/za-kartata.html" data-lang-option="bg">BG</a>
+                    <a href="/en/za-kartata.html" data-lang-option="en">EN</a>
+                </span>
             </nav>
         </div>
     </div>
 
     <div class="content">
         <div class="breadcrumb">
-            <a href="index.html">Начало - Карта</a> &raquo; За картата
+            <a href="index.html" data-i18n="pages.about.breadcrumbHome">Начало - Карта</a> &raquo; <span data-i18n="pages.about.breadcrumbCurrent">За картата</span>
         </div>
 
         <div class="main-card">
-            <h1 class="page-title">Отсечки със средна скорост</h1>
+            <h1 class="page-title" data-i18n="pages.about.pageTitle">Отсечки със средна скорост</h1>
 
-            <h2>📋 За проекта</h2>
-            <p>Тази интерактивна карта показва сертифицирани отсечки за средна скорост в пътната мрежа на България.
+            <h2 data-i18n="pages.about.projectTitle">📋 За проекта</h2>
+            <p data-i18n="pages.about.projectText">Тази интерактивна карта показва сертифицирани отсечки за средна скорост в пътната мрежа на България.
                 Проектът визуализира точките за наблюдение на пътя, където се изчислява и контролира средната скорост.</p>
 
-            <a href="index.html" class="map-link">🗺️ Отвори картата</a>
+            <a href="index.html" class="map-link" data-i18n="pages.about.openMap">🗺️ Отвори картата</a>
 
-            <h2>🛣️ Видове пътища</h2>
+            <h2 data-i18n="pages.about.roadTypesTitle">🛣️ Видове пътища</h2>
             <ul>
-                <li><strong>Магистрали:</strong> показани в тъмно синьо</li>
-                <li><strong>Първокласни пътища:</strong> показани в синьо</li>
+                <li data-i18n="pages.about.highwaysType">Магистрали: показани в тъмно синьо</li>
+                <li data-i18n="pages.about.mainRoadsType">Първокласни пътища: показани в синьо</li>
             </ul>
 
-            <h2>📊 Източник на информацията</h2>
-            <p>Информацията за всяка отсечка е взета от <a
-                    href="https://www.bgtoll.bg/vaprosi-i-otgovori/sredna-skorost/wim" target="_blank" rel="noopener noreferrer nofollow">BG-Toll</a>.
-                Всички координати за камерите се базират на тази уебстраница, както и на <a
-                    href="https://www.google.com/maps/d/u/0/viewer?mid=1bydr93x-u18Oz3lm7ngmWhVTgsP2Eys&ll=42.70781135198676%2C25.26928449999999&z=8" target="_blank" rel="noopener noreferrer nofollow">картата в Google Maps</a>, публикувана също от BG-Toll.</p>
+            <h2 data-i18n="pages.about.sourcesTitle">📊 Източник на информацията</h2>
+            <p data-i18n="pages.about.sourcesText">Информацията за всяка отсечка е взета от BG-Toll. Всички координати за камерите се базират на тази уебстраница, както и на картата в Google Maps, публикувана също от BG-Toll.</p>
+            <p><a href="https://www.bgtoll.bg/vaprosi-i-otgovori/sredna-skorost/wim" target="_blank" rel="noopener noreferrer nofollow">BG-Toll</a> · <a href="https://www.google.com/maps/d/u/0/viewer?mid=1bydr93x-u18Oz3lm7ngmWhVTgsP2Eys&ll=42.70781135198676%2C25.26928449999999&z=8" target="_blank" rel="noopener noreferrer nofollow">Google Maps</a></p>
 
-            <h2>✨ Функционалности</h2>
+            <h2 data-i18n="pages.about.featuresTitle">✨ Функционалности</h2>
             <ul>
-                <li>Включване/изключване на отделни пътни участъци</li>
-                <li>Подробни изскачащи прозорци с информация за пътните отсечки</li>
-                <li>Информация къде се намират отделните тол камери</li>
+                <li data-i18n="pages.about.featureToggle">Включване/изключване на отделни пътни участъци</li>
+                <li data-i18n="pages.about.featurePopups">Подробни изскачащи прозорци с информация за пътните отсечки</li>
+                <li data-i18n="pages.about.featureCameras">Информация къде се намират отделните тол камери</li>
             </ul>
 
-            <h2>📝 Забележка</h2>
-            <p>Този проект е с информационни цели. Спазвайте ограниченията по пътищата, не само в обозначените отсечки!
-                Данните визуализират актуалните към <strong>24.04.2026</strong> отсечки от българската пътна мрежа, които
-                се наблюдават за превишаване на средната скорост.</p>
+            <h2 data-i18n="pages.about.noteTitle">📝 Забележка</h2>
+            <p data-i18n="pages.about.noteText">Този проект е с информационни цели. Спазвайте ограниченията по пътищата, не само в обозначените отсечки! Данните визуализират актуалните към 24.04.2026 отсечки от българската пътна мрежа, които се наблюдават за превишаване на средната скорост.</p>
 
             <div class="info-box">
-                <strong>💡 Полезни връзки:</strong>
+                <strong data-i18n="pages.about.usefulLinks">💡 Полезни връзки:</strong>
                 <ul style="margin-top: 10px;">
-                    <li><a href="globi-sredna-skorost.html">Глоби при средна скорост</a> - пълна таблица с глоби и санкции</li>
-                    <li><a href="statistika.html">Статистика</a> - растеж на мрежата от отсечки</li>
+                    <li><a href="globi-sredna-skorost.html" data-i18n="pages.about.finesLink">Глоби при средна скорост</a> - <span data-i18n="pages.about.finesLinkDescription">пълна таблица с глоби и санкции</span></li>
+                    <li><a href="statistika.html" data-i18n="pages.about.statsLink">Статистика</a> - <span data-i18n="pages.about.statsLinkDescription">растеж на мрежата от отсечки</span></li>
                 </ul>
             </div>
 
-            <h2>👨‍💻 За автора</h2>
-            <p>Валери Пенчев</p>
-            <p>При въпроси, грешки или идеи за подобряване на уебстраницата, свържете се с мен!</p>
-            <p><strong>Контакт:</strong>
+            <h2 data-i18n="pages.about.authorTitle">👨‍💻 За автора</h2>
+            <p data-i18n="pages.about.authorName">Валери Пенчев</p>
+            <p data-i18n="pages.about.authorText">При въпроси, грешки или идеи за подобряване на уебстраницата, свържете се с мен!</p>
+            <p><strong data-i18n="pages.about.contact">Контакт:</strong>
                 <a href="mailto:valeri.projects@gmail.com">📧 Email</a>
             </p>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 <a href="index.html">bg-speed-zones.com</a> - Интерактивна карта на отсечки средна скорост в България</p>
+        <p>&copy; 2026 <a href="index.html">bg-speed-zones.com</a> - <span data-i18n="siteFooter.text">Интерактивна карта на отсечки средна скорост в България</span></p>
     </footer>
+    <script src="locales/bg.js"></script>
+    <script src="locales/en.js"></script>
+    <script src="i18n.js"></script>
 </body>
 
 </html>
