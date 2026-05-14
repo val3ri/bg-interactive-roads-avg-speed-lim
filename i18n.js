@@ -121,7 +121,8 @@
         const url = new URL(window.location.href);
         const fileName = url.pathname.split('/').pop() || 'index.html';
         const normalizedFileName = fileName === '' ? 'index.html' : fileName;
-        const pageFile = normalizedFileName === 'index.html' ? '' : normalizedFileName;
+        const extensionlessFileName = normalizedFileName.replace(/\.html$/, '');
+        const pageFile = extensionlessFileName === 'index' ? '' : extensionlessFileName;
 
         url.searchParams.delete('lang');
         url.pathname = language === 'en'
