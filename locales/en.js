@@ -9,7 +9,7 @@ window.AppLocales.en = {
         ogLocale: 'en_US'
     },
     header: {
-        title: 'Average Speed Camera Sections in Bulgaria (as of 24.04.2026)',
+        title: 'Average Speed Camera Sections in Bulgaria (as of 9.06.2026)',
         fines: '💰 Fines',
         statistics: '📊 Statistics',
         about: 'ℹ️ About the map'
@@ -99,7 +99,7 @@ window.AppLocales.en = {
             featurePopups: 'Detailed popups with information about each road section',
             featureCameras: 'Information about where the toll cameras are located',
             noteTitle: '📝 Note',
-            noteText: 'This project is for informational purposes. Please follow speed limits everywhere, not only in marked sections. The data shows the Bulgarian road sections current as of 24.04.2026 that are monitored for average speed violations.',
+            noteText: 'This project is for informational purposes. Please follow speed limits everywhere, not only in marked sections. The data shows the Bulgarian road sections current as of 9.06.2026 that are monitored for average speed violations.',
             usefulLinks: '💡 Useful links:',
             finesLink: 'Average speed fines',
             finesLinkDescription: 'complete table of fines and sanctions',
